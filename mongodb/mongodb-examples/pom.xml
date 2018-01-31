@@ -3,21 +3,17 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>cn.baiyang.origin</groupId>
-    <artifactId>origin</artifactId>
+    <groupId>cn.baiyang.origin.mongodb</groupId>
+    <artifactId>mongodb</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
  
-  <groupId>cn.baiyang.origin.mongodb</groupId>
-  <artifactId>mongodb</artifactId>
+  <groupId>cn.baiyang.origin.mongodb.examples</groupId>
+  <artifactId>mongodb-examples</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <packaging>pom</packaging>
+  <packaging>jar</packaging>
  
-  <name>mongodb</name>
+  <name>mongodb-examples</name>
   <url>http://cn.baiyang.net</url>
  
-  <modules>
-    <module>mongodb-examples</module>
-  </modules>
-
 </project>
