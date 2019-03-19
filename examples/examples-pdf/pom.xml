@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>cn.baiyang.origin.examples</groupId>
+    <artifactId>examples</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+ 
+  <groupId>cn.baiyang.origin.examples.pdf</groupId>
+  <artifactId>examples-pdf</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+ 
+  <name>examples-pdf</name>
+  <url>http://cn.baiyang.net</url>
+
+    <properties>
+        <openhtml.version>0.0.1-RC18</openhtml.version>
+    </properties>
+
+  <dependencies>
+
+      <!--<dependency>-->
+      <!--<groupId>com.itextpdf</groupId>-->
+      <!--<artifactId>itextpdf</artifactId>-->
+      <!--<version>5.5.13</version>-->
+      <!--</dependency>-->
+
+      <dependency>
+          <!-- ALWAYS required. -->
+          <groupId>com.openhtmltopdf</groupId>
+          <artifactId>openhtmltopdf-core</artifactId>
+          <version>${openhtml.version}</version>
+      </dependency>
+
+      <dependency>
+          <!-- Required for PDF output. -->
+          <groupId>com.openhtmltopdf</groupId>
+          <artifactId>openhtmltopdf-pdfbox</artifactId>
+          <version>${openhtml.version}</version>
+      </dependency>
+
+      <dependency>
+          <!-- Optional, leave out if you do not need HTML5 parsing support. -->
+          <groupId>com.openhtmltopdf</groupId>
+          <artifactId>openhtmltopdf-jsoup-dom-converter</artifactId>
+          <version>${openhtml.version}</version>
+      </dependency>
+
+      <dependency>
+          <!-- Optional, leave out if you do not need logging via slf4j. -->
+          <groupId>com.openhtmltopdf</groupId>
+          <artifactId>openhtmltopdf-slf4j</artifactId>
+          <version>${openhtml.version}</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.testng</groupId>
+          <artifactId>testng</artifactId>
+          <version>6.14.3</version>
+          <scope>test</scope>
+      </dependency>
+  </dependencies>
+ 
+</project>

@@ -16,8 +16,9 @@
   <name>spring-boot</name>
   <url>http://cn.baiyang.net</url>
  
-  <modules>
-    <module>spring-boot-examples</module>
-  </modules>
+  <!--<modules>-->
+    <!--<module>spring-boot-examples</module>-->
+    <!--<module>spring-boot-examples2</module>-->
+  <!--</modules>-->
 
 </project>
