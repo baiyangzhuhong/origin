@@ -20,6 +20,7 @@
     <module>examples-dateTime</module>
     <module>examples-crypto</module>
     <module>examples-pdf</module>
+    <module>examples-nacos-client</module>
   </modules>
 
 </project>
