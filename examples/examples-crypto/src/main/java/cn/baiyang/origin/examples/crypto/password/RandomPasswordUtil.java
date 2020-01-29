@@ -5,7 +5,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Generate Random Password
+ * Generate Random Password<br/>
+ * Required not sequence, allow a little repeated
  *
  * @author hongzhu
  * @version V1.0
