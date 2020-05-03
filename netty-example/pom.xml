@@ -1,0 +1,99 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>cn.baiyang.origin</groupId>
+        <artifactId>origin</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>cn.baiyang.origin.netty</groupId>
+    <artifactId>netty-example</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>netty-example</name>
+    <url>http://cn.baiyang.net</url>
+
+    <properties>
+        <v.netty>4.1.48.Final</v.netty>
+        <v.protobuf>3.11.4</v.protobuf>
+        <v.npn-api>8.1.2.v20120308</v.npn-api>
+        <v.jzlib>1.1.3</v.jzlib>
+        <v.javaassist>3.27.0-GA</v.javaassist>
+        <v.metric-core>2.2.0</v.metric-core>
+        <v.logback>1.2.0</v.logback>
+        <v.bouncycastle>1.64</v.bouncycastle>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>${v.netty}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>${v.protobuf}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty.npn</groupId>
+            <artifactId>npn-api</artifactId>
+            <version>${v.npn-api}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jcraft</groupId>
+            <artifactId>jzlib</artifactId>
+            <version>${v.jzlib}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>${v.javaassist}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.yammer.metrics</groupId>
+            <artifactId>metrics-core</artifactId>
+            <version>${v.metric-core}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${v.logback}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- Needed for OCSP -->
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcpkix-jdk15on</artifactId>
+            <version>${v.bouncycastle}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>${v.bouncycastle}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
