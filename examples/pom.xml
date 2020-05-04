@@ -21,6 +21,7 @@
     <module>examples-crypto</module>
     <module>examples-pdf</module>
     <module>examples-nacos-client</module>
+    <module>examples-io</module>
   </modules>
 
 </project>
