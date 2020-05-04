@@ -34,34 +34,34 @@
             <version>${v.netty}</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.google.protobuf</groupId>
-            <artifactId>protobuf-java</artifactId>
-            <version>${v.protobuf}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty.npn</groupId>
-            <artifactId>npn-api</artifactId>
-            <version>${v.npn-api}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.jcraft</groupId>
-            <artifactId>jzlib</artifactId>
-            <version>${v.jzlib}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.javassist</groupId>
-            <artifactId>javassist</artifactId>
-            <version>${v.javaassist}</version>
-            <scope>runtime</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.google.protobuf</groupId>-->
+<!--            <artifactId>protobuf-java</artifactId>-->
+<!--            <version>${v.protobuf}</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.eclipse.jetty.npn</groupId>-->
+<!--            <artifactId>npn-api</artifactId>-->
+<!--            <version>${v.npn-api}</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.jcraft</groupId>-->
+<!--            <artifactId>jzlib</artifactId>-->
+<!--            <version>${v.jzlib}</version>-->
+<!--            <scope>runtime</scope>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.javassist</groupId>-->
+<!--            <artifactId>javassist</artifactId>-->
+<!--            <version>${v.javaassist}</version>-->
+<!--            <scope>runtime</scope>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>com.yammer.metrics</groupId>
-            <artifactId>metrics-core</artifactId>
-            <version>${v.metric-core}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.yammer.metrics</groupId>-->
+<!--            <artifactId>metrics-core</artifactId>-->
+<!--            <version>${v.metric-core}</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
@@ -70,16 +70,16 @@
         </dependency>
 
         <!-- Needed for OCSP -->
-        <dependency>
-            <groupId>org.bouncycastle</groupId>
-            <artifactId>bcpkix-jdk15on</artifactId>
-            <version>${v.bouncycastle}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.bouncycastle</groupId>
-            <artifactId>bcprov-jdk15on</artifactId>
-            <version>${v.bouncycastle}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.bouncycastle</groupId>-->
+<!--            <artifactId>bcpkix-jdk15on</artifactId>-->
+<!--            <version>${v.bouncycastle}</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.bouncycastle</groupId>-->
+<!--            <artifactId>bcprov-jdk15on</artifactId>-->
+<!--            <version>${v.bouncycastle}</version>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>
