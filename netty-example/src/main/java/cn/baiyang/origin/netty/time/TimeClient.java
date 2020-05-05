@@ -13,6 +13,10 @@ import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.EventLoopGroup;
+import io.netty.channel.epoll.EpollEventLoopGroup;
+import io.netty.channel.epoll.EpollSocketChannel;
+import io.netty.channel.kqueue.KQueueEventLoopGroup;
+import io.netty.channel.kqueue.KQueueSocketChannel;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
@@ -44,23 +48,31 @@ public class TimeClient {
         }
 
         // Configure the client.
-        EventLoopGroup group = new NioEventLoopGroup();
+//        EventLoopGroup group = new NioEventLoopGroup();
+        // for Mac OS
+        EventLoopGroup group = new KQueueEventLoopGroup();
+        // for Linux OS
+//        EventLoopGroup group = new EpollEventLoopGroup();
         try {
             Bootstrap b = new Bootstrap();
             b.group(group)
-                .channel(NioSocketChannel.class)
-                .option(ChannelOption.TCP_NODELAY, true)
-                .handler(new ChannelInitializer<SocketChannel>() {
-                    @Override
-                    public void initChannel(SocketChannel ch) throws Exception {
-                        ChannelPipeline p = ch.pipeline();
-                        if (sslCtx != null) {
-                            p.addLast(sslCtx.newHandler(ch.alloc(), HOST, PORT));
-                        }
-                        //p.addLast(new LoggingHandler(LogLevel.INFO));
-                        p.addLast(new TimeDecoderWithPojo(), new TimeClientHandlerWithPojo());
+//            .channel(NioSocketChannel.class)
+            // for Mac OS
+            .channel(KQueueSocketChannel.class)
+            // for Linux OS
+//            .channel(EpollSocketChannel.class)
+            .option(ChannelOption.TCP_NODELAY, true)
+            .handler(new ChannelInitializer<SocketChannel>() {
+                @Override
+                public void initChannel(SocketChannel ch) throws Exception {
+                    ChannelPipeline p = ch.pipeline();
+                    if (sslCtx != null) {
+                        p.addLast(sslCtx.newHandler(ch.alloc(), HOST, PORT));
                     }
-                });
+                    //p.addLast(new LoggingHandler(LogLevel.INFO));
+                    p.addLast(new TimeDecoderWithPojo(), new TimeClientHandlerWithPojo());
+                }
+            });
 
             // Start the client.
             ChannelFuture f = b.connect(HOST, PORT).sync();
