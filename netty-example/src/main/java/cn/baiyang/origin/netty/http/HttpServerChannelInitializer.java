@@ -40,7 +40,6 @@ public class HttpServerChannelInitializer extends ChannelInitializer<SocketChann
         pipeline.addLast(new HttpServerCodec());
         pipeline.addLast(new HttpObjectAggregator(512 * 1024));
         pipeline.addLast(httpServerInboundHandler);
-        // TODO cookie and query handlers
 //        pipeline.addLast(new HttpContentCompressor());
     }
 
