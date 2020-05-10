@@ -34,11 +34,11 @@
             <version>${v.netty}</version>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>com.google.protobuf</groupId>-->
-<!--            <artifactId>protobuf-java</artifactId>-->
-<!--            <version>${v.protobuf}</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>${v.protobuf}</version>
+        </dependency>
 <!--        <dependency>-->
 <!--            <groupId>org.eclipse.jetty.npn</groupId>-->
 <!--            <artifactId>npn-api</artifactId>-->
