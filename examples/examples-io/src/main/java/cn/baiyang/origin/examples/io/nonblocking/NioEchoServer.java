@@ -40,7 +40,10 @@ public class NioEchoServer {
 //        boolean writeOn = true;
         for (;;){
             try {
-                selector.select();
+                int numOfSelectedKeys = selector.select();
+                if (numOfSelectedKeys == 0) {
+                    continue;
+                }
             } catch (IOException ex) {
                 ex.printStackTrace();
                 //handle exception
@@ -97,6 +100,7 @@ public class NioEchoServer {
 
 //                    writeOn = true;
                 }
+
 //                if (selectionKey.isWritable() && writeOn) {
 //                    writeOn = false;
 //
@@ -110,6 +114,7 @@ public class NioEchoServer {
 //                    socketChannel.write(writeBuffer);
 //                    writeBuffer.clear();
 //                }
+
             } catch (IOException ex) {
                 selectionKey.cancel();
                 try {
@@ -120,6 +125,7 @@ public class NioEchoServer {
             }
             iterator.remove();
         }
+
 //        return writeOn;
     }
 
