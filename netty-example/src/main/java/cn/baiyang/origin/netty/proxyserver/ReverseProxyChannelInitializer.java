@@ -1,9 +1,9 @@
 /*
- * Copyright (c) 2001-2020 GuaHao.com Corporation Limited. All rights reserved.
- * This software is the confidential and proprietary information of GuaHao Company.
+ * Copyright (c) 2001-2020 GH.com Corporation Limited. All rights reserved.
+ * This software is the confidential and proprietary information of GH Company.
  * ("Confidential Information").
  * You shall not disclose such Confidential Information and shall use it only
- * in accordance with the terms of the license agreement you entered into with GuaHao.com.
+ * in accordance with the terms of the license agreement you entered into with GH.com.
  */
 package cn.baiyang.origin.netty.proxyserver;
 
