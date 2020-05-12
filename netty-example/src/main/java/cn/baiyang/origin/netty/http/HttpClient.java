@@ -103,6 +103,9 @@ public class HttpClient {
                     new DefaultCookie("my-cookie", "foo"),
                     new DefaultCookie("another-cookie", "bar")));
 
+            // set body
+//            request.content().clear().writeBytes(body.getBytes(), 0, body.length());
+
             // Send the HTTP request.
             ch.writeAndFlush(request);
 
