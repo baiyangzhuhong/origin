@@ -49,6 +49,7 @@ public class ReverseProxyServer {
             serverBootstrap.group(bossGroup, workerGroup)
                 .channel(KQueueServerSocketChannel.class)
                 .option(ChannelOption.SO_BACKLOG, 100)
+                .childOption(ChannelOption.SO_KEEPALIVE, true)
                 .handler(new LoggingHandler(LogLevel.INFO))
                 .childHandler(channelInitializer);
 

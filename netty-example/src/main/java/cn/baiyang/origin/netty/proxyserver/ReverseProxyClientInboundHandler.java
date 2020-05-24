@@ -49,9 +49,12 @@ public class ReverseProxyClientInboundHandler extends ChannelInboundHandlerAdapt
         inspectResponse(response);
 
         ChannelHandlerContext oriCtx = ctx.channel().attr(ORI_CTX).get();
+        response.headers().set(HttpHeaderNames.CONNECTION, HttpHeaderValues.KEEP_ALIVE);
         ChannelFuture future = oriCtx.channel().writeAndFlush(response);
+        /* Not Keep Alive
         future.addListener(ChannelFutureListener.CLOSE);
         ctx.close();
+         */
     }
 
     private void inspectResponse(FullHttpResponse response) {
