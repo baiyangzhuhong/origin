@@ -14,7 +14,7 @@ import io.netty.channel.ChannelPromise;
 import io.netty.handler.codec.MessageToByteEncoder;
 
 /**
- * TODO
+ *
  *
  * @author hongzhu
  * @version V1.0
