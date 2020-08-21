@@ -15,6 +15,7 @@ import static io.netty.handler.codec.http.HttpHeaderValues.KEEP_ALIVE;
 import static io.netty.handler.codec.http.HttpHeaderValues.APPLICATION_JSON;
 import static io.netty.handler.codec.http.HttpResponseStatus.OK;
 
+import java.net.URI;
 import java.nio.charset.Charset;
 import java.util.List;
 import java.util.Map;
@@ -54,22 +55,22 @@ public class HttpServerInboundHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
-        System.out.println("HttpServerInboundHandler is registered");
+        System.out.println("HttpServerInboundHandler channel registered");
     }
 
     @Override
     public void channelUnregistered(ChannelHandlerContext ctx) throws Exception {
-        System.out.println("HttpServerInboundHandler is unregistered");
+        System.out.println("HttpServerInboundHandler channel unregistered");
     }
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        System.out.println("HttpServerInboundHandler is active");
+        System.out.println("HttpServerInboundHandler channel active");
     }
 
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        System.out.println("HttpServerInboundHandler is inactive");
+        System.out.println("HttpServerInboundHandler channel inactive");
     }
 
     @Override
@@ -81,6 +82,11 @@ public class HttpServerInboundHandler extends ChannelInboundHandlerAdapter {
         HttpHeaders headers = request.headers();
         System.out.println(String.format("httpVersion: %s, httpMethod: %s, uri: %s, headerSize: %d",
             version.text(), method.name(), uri, headers.size()));
+
+        URI uriTool = new URI(uri);
+        String path = uriTool.getPath();
+        String rawPath = uriTool.getRawPath();
+        System.out.println(String.format("Path: %s, RawPath: %s", path, rawPath));
 
         StringBuilder builder = new StringBuilder();
         QueryStringDecoder queryStringDecoder = new QueryStringDecoder(uri);
@@ -149,21 +155,22 @@ public class HttpServerInboundHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
-        System.out.println("HttpServerInboundHandler read complete");
+        System.out.println("HttpServerInboundHandler channel read complete");
     }
 
     @Override
     public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
-        super.userEventTriggered(ctx, evt);
+        System.out.println("HttpServerInboundHandler user event triggered");
     }
 
     @Override
     public void channelWritabilityChanged(ChannelHandlerContext ctx) throws Exception {
-        super.channelWritabilityChanged(ctx);
+        System.out.println("HttpServerInboundHandler channel writability");
     }
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        System.out.println("HttpServerInboundHandler exception caught");
         cause.printStackTrace();
         ctx.writeAndFlush("Errored");
         ctx.close();
