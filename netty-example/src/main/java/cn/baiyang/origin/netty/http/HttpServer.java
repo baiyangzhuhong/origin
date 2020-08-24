@@ -29,7 +29,7 @@ import io.netty.handler.ssl.util.SelfSignedCertificate;
 public class HttpServer {
 
     static final boolean SSL = System.getProperty("ssl") != null;
-    static final int PORT = Integer.parseInt(System.getProperty("port", "8080"));
+    static final int PORT = Integer.parseInt(System.getProperty("port", "9090"));
 
     public static void main(String[] args) throws Exception {
         // Configure SSL.
@@ -49,6 +49,8 @@ public class HttpServer {
             b.group(bossGroup, workerGroup)
             .channel(KQueueServerSocketChannel.class)
             .option(ChannelOption.SO_BACKLOG, 100)
+            .childOption(ChannelOption.SO_KEEPALIVE, false)
+            .childOption(ChannelOption.TCP_NODELAY, true)
             .handler(new LoggingHandler(LogLevel.INFO))
             .childHandler(httpServerChannelInitializer);
 

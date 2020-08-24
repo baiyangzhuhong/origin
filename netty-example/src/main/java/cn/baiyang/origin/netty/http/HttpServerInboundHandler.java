@@ -111,8 +111,7 @@ public class HttpServerInboundHandler extends ChannelInboundHandlerAdapter {
             decoderResult.cause().printStackTrace();
         }
 
-        boolean keepAlive = HttpUtil.isKeepAlive(request);
-        String content = uri.equals("/") ? "{\"code\":0,\"success\":true}"
+        String content = uri.equals("/") ? "{\"code\":0,\"success\":true}\n"
             : "{\"code\":1,\"success\":false, \"message\":\"Not Supported\"}";
         ByteBuf result = Unpooled.wrappedBuffer(content.getBytes(), 0, content.length());
 //        ByteBuf result = Unpooled.copiedBuffer(content.toString(), CharsetUtil.UTF_8);
@@ -138,6 +137,7 @@ public class HttpServerInboundHandler extends ChannelInboundHandlerAdapter {
             responseHeaders.add(HttpHeaderNames.SET_COOKIE, ServerCookieEncoder.STRICT.encode("key2", "value2"));
         }
 
+        boolean keepAlive = HttpUtil.isKeepAlive(request);
         if (keepAlive) {
             if (!version.isKeepAliveDefault()) {
                 responseHeaders.set(CONNECTION, KEEP_ALIVE);

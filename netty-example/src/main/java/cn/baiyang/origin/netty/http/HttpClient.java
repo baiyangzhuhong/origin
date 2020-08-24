@@ -40,7 +40,7 @@ import io.netty.handler.ssl.util.InsecureTrustManagerFactory;
  */
 public class HttpClient {
 
-    static final String URL = System.getProperty("url", "http://127.0.0.1:8080/?name=zhangsan");
+    static final String URL = System.getProperty("url", "http://127.0.0.1:9090/?name=zhangsan");
 
     public static void main(String[] args) throws Exception {
         URI uri = new URI(URL);
