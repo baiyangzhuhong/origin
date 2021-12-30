@@ -17,6 +17,7 @@
   <url>http://cn.baiyang.net</url>
  
   <modules>
+    <module>examples-basic</module>
     <module>examples-dateTime</module>
     <module>examples-crypto</module>
     <module>examples-pdf</module>

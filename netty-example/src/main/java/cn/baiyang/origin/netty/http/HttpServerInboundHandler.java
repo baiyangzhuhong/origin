@@ -13,7 +13,9 @@ import static io.netty.handler.codec.http.HttpHeaderNames.CONTENT_TYPE;
 import static io.netty.handler.codec.http.HttpHeaderValues.CLOSE;
 import static io.netty.handler.codec.http.HttpHeaderValues.KEEP_ALIVE;
 import static io.netty.handler.codec.http.HttpHeaderValues.APPLICATION_JSON;
+import static io.netty.handler.codec.http.HttpResponseStatus.NOT_FOUND;
 import static io.netty.handler.codec.http.HttpResponseStatus.OK;
+import static io.netty.handler.codec.http.HttpResponseStatus.INTERNAL_SERVER_ERROR;
 
 import java.net.URI;
 import java.nio.charset.Charset;
@@ -110,12 +112,29 @@ public class HttpServerInboundHandler extends ChannelInboundHandlerAdapter {
         if (decoderResult.isFailure()) {
             decoderResult.cause().printStackTrace();
         }
+ /*
+        FullHttpResponse response = new DefaultFullHttpResponse(version, OK);
+        HttpHeaders responseHeaders = response.headers();
+        responseHeaders
+            .set("X-Accel-Redirect", "/G1/M00/test")
+            .set("Kano-Biz-Code", "med_file")
+            .set("Last-Modified", "Wed, 24 Mar 2021 18:45:45 GMT")
+            .set("Cache-Control", "no-cache")
+            .set("Expires", "Wed, 24 Mar 2021 23:45:45 GMT")
+            .set("Content-Type", "text/html;charset=utf-8")
+            .setInt("Content-Length", 0)
+        ;
 
+
+*/
         String content = uri.equals("/") ? "{\"code\":0,\"success\":true}\n"
             : "{\"code\":1,\"success\":false, \"message\":\"Not Supported\"}";
         ByteBuf result = Unpooled.wrappedBuffer(content.getBytes(), 0, content.length());
 //        ByteBuf result = Unpooled.copiedBuffer(content.toString(), CharsetUtil.UTF_8);
-        FullHttpResponse response = new DefaultFullHttpResponse(version, OK, result);
+        FullHttpResponse response = new DefaultFullHttpResponse(version, INTERNAL_SERVER_ERROR, result);
+        if (uri.startsWith("/error/degrade/nobody")) {
+            response = new DefaultFullHttpResponse(version, NOT_FOUND);
+        }
         HttpHeaders responseHeaders = response.headers();
         responseHeaders
             .set(CONTENT_TYPE, APPLICATION_JSON)
